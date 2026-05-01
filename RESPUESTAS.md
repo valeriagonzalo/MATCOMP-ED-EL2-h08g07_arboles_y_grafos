@@ -7,7 +7,7 @@ El resultado de la suma es 8256. En todos los casos la suma es la misma. Esto se
 Como todos los nuevos nodos son mayores que el anterior, los hijos solo se insertan en un lado y no hay ramificación alguna, por lo que es orden es ascendente. Así pues, la altura es 128.
 
 #### ¿Cuál es el camino para llegar al valor 110? ¿Cuál es su longitud de camino?
-El camino se guido es [0, 1, 2, 3, ..., 110]. La longitud es 110 (obtenido contando, desde la raíz, el número de saltos)
+El camino seguido es [0, 1, 2, 3, ..., 110]. La longitud es 110 (obtenido contando, desde la raíz, el número de saltos)
 
 ### Crea un segundo programa de prueba
 #### Verifica que la suma es la misma cuando se suman los elementos de los subárboles izquierdo y derecho. ¿Por qué?
@@ -23,23 +23,23 @@ Se sigue un camino que salta entre varios números no ordenados. Por ejemplo, se
 Lo que diferencia los programas es principalmente la eficiencia. En el primer programa, el árbol generado en la primera prueba se asemeja a una lista, pues no tiene ramificaciones hacia ambos lados. Sin embargo, en la segunda prueba si encontramos un árbol algo más equilibrado de ambos lados. En cuanto al segundo programa, en la primera prueba cuesta más llegar hasta el número que se desea encontrar (tantas operaciones como números haya hasta llegar a ese). En cambio, en la segunda, no son necesarias tantas operaciones para llegar a un mismo número.
 
 ### ¿Qué sucede con los resultados si ejecuta los programas de prueba varias veces?
-Al ser la primera prueba ordenada, los datos mantienen una disposición fija, de forma que el árbol que se forma siempre va a tener la misma estructura y altura. En general, los resultados no varían. Sin embargo, en la segunda no es ordedana, luego aunque el resultado de la suma no cambia (puesto que los elementos son los mismos), la altura del árbol y la longitud del camino hasta cierto número, sí se alteran. Esto se debe a que las posiciones de los nodos varían cada vez que se inicia el programa.
+Al ser la primera prueba ordenada, los datos mantienen una disposición fija, de forma que el árbol que se forma siempre va a tener la misma estructura y altura. En general, los resultados no varían. Sin embargo, en la segunda no es ordenada, luego aunque el resultado de la suma no cambia (puesto que los elementos son los mismos), la altura del árbol y la longitud del camino hasta cierto número, sí se alteran. Esto se debe a que las posiciones de los nodos varían cada vez que se inicia el programa.
 
 ## **GRAFOS**
 #### ¿Cuál es el camino mínimo entre dos entidades A y B del grafo?
-Se exploran las relaciones nivel por nivel habiendo partido del nodo A, esto es debido a la forma en la que se implementa el grafo. Así pues, cuando se llega al nodo B por primera vez, está asegurado que el camino ha sido recorrido con el número mínimo de saltos. AÑADIR RESPUESTA CONCRETA SEGÚN NUESTROS GRAFOS!!!!
+En nuestro caso, como nuestras aristas no tienen pesos, hemos supuesto el peso de 1 en cada una. Entonces, según el algoritmo de Dijkstra, el camino más corto, es el que sume un menor peso entre las aristas por las que pasa.
 
 #### Dado un archivo de datos que se carga en el grafo, ¿genera un grafo disjunto? Cree dos archivos que generen cada opción posible y compruebe en el código.
-Un grafo es disjunto cuando el número de nodos que se visitan en un recorrido es menor que el número de nodos que se han registrado para generar el grafo. Esto significará que hay dos subgrafos que no están conectados. En este caso, el grafo es PONER SI ES DISJUNTO O NO SEGÚN NUESTROS GRAFOS!!!!
+Un grafo es disjunto cuando el número de nodos que se visitan en un recorrido es menor que el número de nodos que se han registrado para generar el grafo. Esto significará que hay dos subgrafos que no están conectados. El grafo hecho para Dijkstra es conjunto, ya que todos los nodos están interconectados.  
 
 #### Suponiendo un grafo de conocimiento general con la información de los premios Nobel de todas las áreas, cómo harías para responder a la pregunta: ¿Qué físico famoso nació en la misma ciudad que Einstein? Crea el fichero de datos para completar el grafo y poder extraer la respuesta a esta pregunta. Crea el código para verificarlo.
-Primero buscaríamos el lugar partiendo de la tripleta <"persona:Albert Einstein", "nace_en", lugarnac>, donde lugarnac = lugar:Ulm, puesto que Einstein nació en la ciudad alemana Ulm. Finalmente, tendríamos que buscar a la persona distinta del científico ya mencionado que cumpla las condiciones (haber nacido en dicha ciudad y haber obtenido el Nobel de Física).
+Primero buscaríamos a Persona:Einstein, para encontar su nodo. De ahí buscar la arista que conecte con el lugar de su nacimiento. Sacamos el id único de ese nodo y buscamos todos los nodos de tipo persona conectados a él. De cada persona buscaríamos si tiene alguna conexión con nodos de tipo ocupación, y de ahí los que la ocupación sea fisico. 
 
 #### Añada una tripleta <"persona:Antonio", "nace_en", "lugar:Villarrubia de los Caballeros"> al grafo. Liste cuáles son los lugares de nacimiento de los premios Nobel. ¿Qué caminos necesita recorrer para que su respuesta fuese correcta?
-El problema es que no vamos a encontrar “Villarrubia de los Caballeros” en la lista final. Así pues, para cambiar esto, necesitamos distinguir los sujetos que tengan una arista que empiece por “premio”. Una vez que seleccionamos solo esas aristas, recorremos “nace_en” y escogemos el objeto final, que cumple estos requisitos. Por otro lado, esta persona, Antonio, no tiene ningún premio Nobel, luego el camino se pararía en la primera condición, ya que no la cumple.
+El camino es Persona --> Atributo (Nobel) para validar, y luego retroceder a Persona --> Lugar (Nacimiento) para informar. Si se intentase ir directamente a los lugares, no se sabría cuáles pertenecen a un Nobel y cuáles a personas comunes como "Antonio".
 
 #### ¿Qué tipos de nodos tiene el grafo?
-Existen los nodos que no pueden tener aristas salientes ni ser sujetos, solo pueden ser objetos. Así pues, se limitan estar formados por datos, por ejemplo, un año. El segundo tipo de nodos. Además de poder ser objetos, también pueden actuar como sujetos. De esta forma, los nodos identifican recursos de manera abstracta, un ejemplo sería el de Einstein, utilizado anteriormente: persona:Albert Einstein, lugar:Ulm.
+Existen los nodos que no pueden tener aristas salientes ni ser sujetos, solo pueden ser objetos. Así pues, se limitan estar formados por datos, por ejemplo, un año. El segundo tipo de nodos, además de poder ser objetos, también pueden actuar como sujetos. De esta forma, los nodos identifican recursos de manera abstracta, un ejemplo sería el de Einstein, utilizado anteriormente: persona:Albert Einstein, lugar:Ulm.
 
 #### ¿Qué es una ontología? ¿Qué relación tiene con los grafos? ¿Podríamos crear una ontología para nuestro problema? ¿Qué haríamos con ella?
 Una ontología es un modelo que define las propiedades, reglas, clases y vocabulario de un área de conocimiento. La ontología determina “las reglas” y cómo unos datos concretos pueden interactuar. El grafo, por su parte, contiene dichos datos.
