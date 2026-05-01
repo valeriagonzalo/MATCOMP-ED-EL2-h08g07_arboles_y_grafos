@@ -1,0 +1,8 @@
+{
+  "tipos": ["persona", "lugar", "premio"],
+  "tripletas": [
+    { "s": "persona:A", "p": "conoce_a", "o": "persona:B" },
+    { "s": "persona:B", "p": "vive_en", "o": "lugar:Madrid" },
+    { "s": "persona:C", "p": "amigo_de", "o": "persona:B" }
+  ]
+}

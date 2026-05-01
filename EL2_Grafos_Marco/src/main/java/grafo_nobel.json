@@ -1,0 +1,16 @@
+{
+  "tipos": ["persona", "lugar", "premio"],
+  "tripletas": [
+    { "s": "persona:Einstein", "p": "nace_en", "o": "lugar:Ulm" },
+    { "s": "persona:Yoshi", "p": "nace_en", "o": "lugar:Ulm" },
+    { "s": "persona:Mario", "p": "nace_en", "o": "lugar:Ulm" },
+
+    { "s": "persona:Einstein", "p": "profesion", "o": "profesion:fisico" },
+    { "s": "persona:Yoshi", "p": "profesion", "o": "profesion:doctor" },
+    { "s": "persona:Mario", "p": "profesion", "o": "profesion:fisico" },
+
+    {"s": "persona:Einstein", "p": "premio:Nobel_Fisica", "o": "1921"},
+    {"s": "persona:Yoshi", "p": "premio:Nobel_Medicina", "o": "1921"},
+    {"s": "persona:Mario", "p": "premio:Nobel_Fisica", "o": "1921"}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tipos": ["persona", "lugar"],
+  "tripletas": [
+    { "s": "persona:Einstein", "p": "nace_en", "o": "lugar:Ulm" },
+
+    { "s": "persona:Antonio", "p": "nace_en", "o": "lugar:Villarrubia" }
+  ]
+}

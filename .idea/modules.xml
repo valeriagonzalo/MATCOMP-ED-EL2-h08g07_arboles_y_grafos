@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/EL2_Grafos_Marco/EL2_Grafos_Marco.iml" filepath="$PROJECT_DIR$/EL2_Grafos_Marco/EL2_Grafos_Marco.iml" />
       <module fileurl="file://$PROJECT_DIR$/MatComp-ED-EL2-Arboles.iml" filepath="$PROJECT_DIR$/MatComp-ED-EL2-Arboles.iml" />
     </modules>
   </component>
